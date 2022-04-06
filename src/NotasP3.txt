@@ -1,0 +1,58 @@
+Styled components
+
+dependencias a instalar en la consola:
+npm install @emotion/react @emotion/styled
+
+en JSX podemos utilizar HTML con expresiones JavaScript, pero también es posible crear un elemento HTML 
+con la sintaxis de un componente y añadir propiedades de CSS.
+En lugar de utilizar una hoja de estilos o una librería externa, se escribe código CSS en cada componente (CSS en JS)
+
+Ventajas:
+Al dejar de utilizar un componente, podemos eliminar su código CSS también, a diferencia de una hoja de estilos
+global.
+Sigues teniendo la ventaja de reutilizar tu código CSS.
+
+Sintaxis:
+const Heading = styled.h1 `
+font-size: 2em;
+text-transform: uppercase;
+`;
+
+<Heading>Nuestros Productos</Heading>
+
+Para usar styled components, se debe importar dentro del archivo donde se usará:
+import styled from '@emotion/styled'
+
+----------------- Por qué crear tus propios Hooks? -------------------------------
+Algunas veces vas a desear crear tus propios Hooks, una de las razones de porque deseas crearlos es para poder
+re-utilizar una función.
+También puedes crear una función helper, pero existe otra gran ventaja de crear tus propios Hooks y es la de 
+incorporar State y mantener el valor de una función de forma persistente.
+Tu código personalizado tendrá todas las ventajas de React como son: state, effects, integrar otros hooks y el 
+performance
+Re utilizable en otros proyectos y lugares de tu página.
+
+Pasos para crear tus propios Hooks:
+Ir a la carpeta src y adentro crear una nueva carpeta (hermana de la carpeta components) llamada hooks
+Una vez creada, abrir la carpeta y empezar a crear los hooks:
+Son buenas prácticas comenzar el nombre del hook con "use". Ejm: useSelectCoins.jsx
+Dentro del archivo useSelectCoins, crear una función con rafce , eliminar los divs y empezar a programar el hook:
+
+
+import React from 'react'
+
+const useSelectCoins = () => {
+	const SelectCoins = () => {
+		console.log('Desde Select Monedas');
+	}
+	return [ SelectCoins ]
+}
+
+export default useSelectCoins
+
+Importante: los hooks únicamente retornan arrays u objetos.
+
+--------------------- Consultar una API con React ----------------------------------
+Al ser JS puedes utilizar fetch API y obtener los datos para mostrarlos en pantalla.
+Algunas API's requieren un KEY, y otras están protegidas por CORS
+También es posible integrar una librería esterna como Axios
